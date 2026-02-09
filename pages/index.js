@@ -11,6 +11,7 @@ export default function Homepage({ artPieces }) {
         title={art.artist}
         description={art.name}
         imageSource={art.imageSource}
+        slug={art.slug}
       />
     </section>
   );
