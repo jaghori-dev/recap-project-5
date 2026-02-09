@@ -2,10 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Card({ title, description, imageSource }) {
+export default function Card({ title, description, imageSource, slug }) {
   const router = useRouter();
-  const { slug } = router.query;
-  console.log(slug);
   return (
     <div className="art-card">
       <div className="art-image-wrapper">
@@ -13,7 +11,7 @@ export default function Card({ title, description, imageSource }) {
       </div>
       <div className="art-card-body">
         <h2 className="art-title">
-          <Link href={`/${slug}`}>{description}</Link>
+          <Link href={`/details/${slug}`}>{description}</Link>
         </h2>
         <p className="art-description">Artist: {title}</p>
       </div>
