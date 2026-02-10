@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { Fredoka } from 'next/font/google';
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
+  const currentPath = router.pathname;
+
   return (
     <HeaderItem>
       <HeaderHeadline>
@@ -11,7 +15,7 @@ export default function Header() {
       <NavItem>
         <UlItem>
           <li>
-            <NavLink href="/">
+            <NavLink href="/" active={currentPath === '/'}>
               Spotlight
               <Arrow viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 10l5 5 5-5z" />
@@ -19,7 +23,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink href="/gallery" className="nav-link">
+            <NavLink href="/gallery" active={currentPath === '/gallery'}>
               Gallery
               <Arrow viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 10l5 5 5-5z" />
@@ -27,7 +31,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink href="/favorites" className="nav-link">
+            <NavLink href="/favorites" active={currentPath === '/favorites'}>
               Favorites
               <Arrow viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 10l5 5 5-5z" />
@@ -103,26 +107,42 @@ const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 2rem;
   text-decoration: none;
   color: #475569;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.1rem;
-  border-radius: 12px;
+  border-radius: 0.75rem;
+  cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   
-  &:hover {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  ${({ active }) => active && css`
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
 
     .arrow {
       transform: rotate(180deg);
       opacity: 1;
     }
+  `}
+  
+  &:hover {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+
+    .arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+  }
+  &:active {
+    transform: translateY(0);
   }
 `;
 

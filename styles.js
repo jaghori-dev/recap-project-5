@@ -36,20 +36,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
   }
   
-  button, a[href] {
-    border-radius: var(--border-radius);
-    transition: var(--btn-transition);
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    background: none;
-  }
-
-  button:hover, a[href]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px var(--accent-hover);
-  }
-  
   /* Responsive */
   @media (max-width: 768px) {
     :root {
@@ -58,6 +44,5 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `;
-
 
 export default GlobalStyle;

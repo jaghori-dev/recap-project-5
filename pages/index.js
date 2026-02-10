@@ -7,8 +7,8 @@ export default function Homepage({ artPieces }) {
   return (
     <Card
         key={art.slug}
-        title={art.artist}
-        description={art.name}
+        artist={art.artist}
+        imageName={art.name}
         imageSource={art.imageSource}
         slug={art.slug}
       />

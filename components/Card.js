@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-export default function Card({ title, description, imageSource, slug }) {
+export default function Card({ artist, imageName, imageYear= "", imageGenre="", imageSource, slug }) {
   return (
     <Section>
       <ArtCard>
@@ -11,18 +11,26 @@ export default function Card({ title, description, imageSource, slug }) {
             src={`${imageSource}`}
             height={200}
             width={200}
-            alt={description} />
+            alt={imageName} />
         </ArtCardImageWrapper>
         <ArtCardBody>
           <ArtCardTitle >
             <Link href={`/details/${slug}`}>
-              {description}
+              {imageName}
             </Link>
           </ArtCardTitle>
           <ArtCardItem>
             <ArtCardLabel>Artist:</ArtCardLabel>
-            <ArtCardValue>{title}</ArtCardValue>
+            <ArtCardValue>{artist}</ArtCardValue>
            </ArtCardItem>
+          <ArtCardItem>
+            <ArtCardLabel>Year:</ArtCardLabel>
+            <ArtCardValue>{imageYear}</ArtCardValue>
+          </ArtCardItem>
+          <ArtCardItem>
+            <ArtCardLabel>Genre:</ArtCardLabel>
+            <ArtCardValue>{imageGenre}</ArtCardValue>
+          </ArtCardItem>
         </ArtCardBody>
       </ArtCard>
     </Section>
