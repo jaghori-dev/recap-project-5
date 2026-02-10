@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import NotFound from "@/components/NotFound";
 import Loading from "@/components/Loading";
-import Card from "@/components/Card";
+import Card from "@/components/Card/Card";
 import LinkButton from "@/components/LinkButton";
 
 export default function Details({ artPieces }) {

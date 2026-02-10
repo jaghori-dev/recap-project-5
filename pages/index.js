@@ -11,6 +11,7 @@ export default function Homepage({ artPieces }) {
         imageName={art.name}
         imageSource={art.imageSource}
         slug={art.slug}
+        isDetails={false}
       />
   );
 }

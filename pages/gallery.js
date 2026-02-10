@@ -1,4 +1,4 @@
-import ArtGallery from "@/components/ArtGallery";
+import ArtGallery from "@/components/Gallery/ArtGallery";
 
 export default function Gallery({ artPieces }) {
   return (

@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 import useSWR from "swr";
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";

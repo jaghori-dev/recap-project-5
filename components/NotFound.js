@@ -1,5 +1,5 @@
-import Link from "next/link";
 import styled from "styled-components";
+import LinkButton from "@/components/LinkButton";
 
 export default function NotFound() {
   return (
@@ -13,7 +13,9 @@ export default function NotFound() {
       <NotFoundTitle>Art piece not found</NotFoundTitle>
       <NotFoundText>
         The artwork does not exist or has been removed.<br/>
-        <Link href="/gallery">Back to Gallery</Link>
+        <LinkButton
+          text="Back to Gallery"
+          link="/gallery"/>
       </NotFoundText>
     </NotFoundWrapper>
   );

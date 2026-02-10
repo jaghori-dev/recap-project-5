@@ -1,5 +1,6 @@
-import Card from "@/components/Card";
+
 import styled from "styled-components";
+import Card from "@/components/Card/Card";
 
 export default function ArtGallery({artPieces}) {
   return (
@@ -11,7 +12,7 @@ export default function ArtGallery({artPieces}) {
           artist={item.artist}
           imageName={item.name}
           imageSource={item.imageSource}
-          isGallery={true}
+          isDetails={false}
         />
       ))}
     </Section>
