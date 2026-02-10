@@ -102,14 +102,12 @@ const ArtCardTitle = styled.div`
     font-weight: 600;
     line-height: 1.3;
     text-decoration: none;
-    
-    /* Truncate bei langen Titeln */
+  
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     
-   
     &:hover {
       color: #3b82f6;  
       text-decoration: underline;
