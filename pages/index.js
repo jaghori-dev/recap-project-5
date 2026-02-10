@@ -5,14 +5,12 @@ export default function Homepage({ artPieces }) {
   const art = artPieces[randomZahl];
 
   return (
-    <section className="spotlight-container">
-      <Card
+    <Card
         key={art.slug}
         title={art.artist}
         description={art.name}
         imageSource={art.imageSource}
         slug={art.slug}
       />
-    </section>
   );
 }
