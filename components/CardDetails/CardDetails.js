@@ -18,7 +18,6 @@ export default function CardDetails({ artPiece }) {
           <p className="art-description">Artist: {artPiece.artist}</p>
           <p className="art-description">Year: {artPiece.year}</p>
           <p className="art-description">Genre: {artPiece.genre}</p>
-
           <Link href="/gallery">back to gallery</Link>
         </div>
       </div>
