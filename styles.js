@@ -35,13 +35,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-primary);
     line-height: 1.6;
   }
-
-  
-  .app-main, main, section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
-  }
   
   button, a[href] {
     border-radius: var(--border-radius);
@@ -56,45 +49,12 @@ const GlobalStyle = createGlobalStyle`
     transform: translateY(-2px);
     box-shadow: 0 8px 25px var(--accent-hover);
   }
-
-  /* Zentrierung für ALLE Hauptinhalte */
-  .app-main,
-  main,
-  section,
-  .page-container,
-  [class*="page"] {
-    max-width: 1200px;       
-    margin: 0 auto;           
-    padding: 2rem 1rem;       
-    width: 100%;
-  }
-
-  /* Speziell für Gallery/Spotlight-Container */
   
-  .spotlight-container {
-    display: grid;
-    place-items: center;     
-    min-height: 60vh;
-  }
-
-  /* Flex-Fallback für Listen/Buttons */
-  .content-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     :root {
       --font-size-h1: 1.5rem;
       --spacing-lg: 1rem;
-    }
-
-    .app-main, main, section {
-      padding: 1rem 0.5rem;
     }
   }
 `;

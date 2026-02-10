@@ -3,11 +3,11 @@ import Header from "@/components/Header";
 import useSWR from "swr";
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
+import styled from "styled-components";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
-  const data = await response.json();
-  return data;
+  return await response.json();
 };
 export default function App({ Component, pageProps }) {
   const {
@@ -23,9 +23,20 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Header />
-      <main className="app-main">
+      <Main>
         <Component {...pageProps} artPieces={artPieces} />
-      </main>
+      </Main>
     </>
   );
 }
+
+const Main = styled.main`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 1rem 0.5rem;
+  }
+`;

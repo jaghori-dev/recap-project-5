@@ -19,6 +19,7 @@ const ErrorWrapper = styled.div`
 
 const ErrorText = styled.p`
   color: #64748b;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  max-width: 400px;
+  line-height: 1.6;
 `;
