@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import Card from "@/components/Card/Card";
 
 export default function Homepage({ artPieces }) {
   const randomZahl = Math.floor(Math.random() * artPieces.length);

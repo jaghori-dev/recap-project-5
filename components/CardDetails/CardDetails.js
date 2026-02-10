@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function CardDetails({ artPiece }) {
-  // const artElem = artPieces[0];
-
   return (
     <section className="spotlight-container">
       <div className="art-card">
@@ -21,9 +19,7 @@ export default function CardDetails({ artPiece }) {
           <p className="art-description">Year: {artPiece.year}</p>
           <p className="art-description">Genre: {artPiece.genre}</p>
 
-          <Link href="/gallery">
-            back to gallery
-          </Link>
+          <Link href="/gallery">back to gallery</Link>
         </div>
       </div>
     </section>
