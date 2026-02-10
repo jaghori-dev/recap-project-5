@@ -1,4 +1,4 @@
-import CardDetails from "@/components/CardDetails";
+import CardDetails from "@/components/CardDetails/CardDetails";
 import { useRouter } from "next/router";
 
 export default function Details({ artPieces }) {
