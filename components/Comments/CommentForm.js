@@ -5,15 +5,22 @@ export default function CommentForm({comments, setComments, artPiece}) {
     event.preventDefault();
     const newComment = event.target.comment.value;
 
-    const date = new Date().toLocaleDateString("en-us", {
+    const now = new Date();
+    const dateTime = now.toLocaleString("en-us", {
       dateStyle: "medium",
+      timeStyle: "short",
     });
+
     setComments(() => [
-      { comment: newComment,
-        date: date,
-        slug: artPiece.slug },
+      {
+        comment: newComment,
+        date: dateTime,
+        slug: artPiece.slug
+      },
         ...comments,
     ]);
+
+    event.target.reset();
   }
 
   return (
