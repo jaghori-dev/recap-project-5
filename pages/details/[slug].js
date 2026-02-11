@@ -22,7 +22,7 @@ export default function Details({ artPieces }) {
   }
 
   const artPiece = artPieces.find((art) => art.slug === slug);
-  console.log("Art", artPiece);
+
   if (!artPiece) {
     return <NotFound/>;
   }

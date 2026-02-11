@@ -8,7 +8,7 @@ export default function ColorPalette({ colors = [] }) {
   return (
     <PaletteContainer>
       <ColorsGrid>
-        {colors.slice(0, 8).map((col, index) => (
+        {colors.map((col, index) => (
           <Colors key={index} color={col} title={col} />
         ))}
       </ColorsGrid>
