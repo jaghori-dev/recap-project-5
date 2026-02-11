@@ -1,8 +1,7 @@
-
 import styled from "styled-components";
 import Card from "@/components/Card/Card";
 
-export default function ArtGallery({artPieces}) {
+export default function ArtGallery({ artPieces, favorites, toggleFavorites }) {
   return (
     <Section>
       {artPieces.map((item) => (
@@ -13,10 +12,12 @@ export default function ArtGallery({artPieces}) {
           imageName={item.name}
           imageSource={item.imageSource}
           isDetails={false}
+          isFavorite={favorites[item.slug]}
+          onClick={() => toggleFavorites(item.slug)}
         />
       ))}
     </Section>
-  )
+  );
 }
 
 const Section = styled.section`

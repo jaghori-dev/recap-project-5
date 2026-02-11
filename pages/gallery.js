@@ -1,8 +1,11 @@
 import ArtGallery from "@/components/Gallery/ArtGallery";
 
-export default function Gallery({ artPieces }) {
+export default function Gallery({ artPieces, favorites, toggleFavorites }) {
   return (
-    <ArtGallery artPieces={artPieces}/>
-
+    <ArtGallery
+      artPieces={artPieces}
+      favorites={favorites}
+      toggleFavorites={toggleFavorites}
+    />
   );
 }
