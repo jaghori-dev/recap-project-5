@@ -23,6 +23,9 @@ export default function App({ Component, pageProps }) {
   if (error) return <Error />;
   if (isLoading) return <Loading />;
   function handleFormValue(slug, newComment) {
+    if(newComment === ''){
+      return
+    }
     console.log(newComment);
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
