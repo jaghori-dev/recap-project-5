@@ -1,18 +1,17 @@
-import Card from "@/components/Card";
+import Card from "@/components/Card/Card";
 
 export default function Homepage({ artPieces }) {
   const randomZahl = Math.floor(Math.random() * artPieces.length);
   const art = artPieces[randomZahl];
 
   return (
-    <section className="spotlight-container">
-      <Card
+    <Card
         key={art.slug}
-        title={art.artist}
-        description={art.name}
+        artist={art.artist}
+        imageName={art.name}
         imageSource={art.imageSource}
         slug={art.slug}
+        isDetails={false}
       />
-    </section>
   );
 }
