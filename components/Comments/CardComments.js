@@ -61,10 +61,6 @@ const CommentItem = styled.li`
     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
     transform: translateY(-1px);
   }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 `;
 
 const CommentContent = styled.p`

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import NotFound from "@/components/NotFound";
 import Loading from "@/components/Loading";
 import Card from "@/components/Card/Card";
-import LinkButton from "@/components/LinkButton";
+import LinkButton from "@/components/Buttons/LinkButton";
 import CommentForm from "@/components/Comments/CommentForm";
 import CardComments from "@/components/Comments/CardComments";
 import useLocalStorageState from "use-local-storage-state";

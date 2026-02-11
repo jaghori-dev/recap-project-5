@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LinkButton from "@/components/LinkButton";
+import LinkButton from "@/components/Buttons/LinkButton";
 
 export default function NotFound() {
   return (
