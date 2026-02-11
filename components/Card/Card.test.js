@@ -1,10 +1,18 @@
 import { render, screen } from "@testing-library/react";
-import Card from "./Card";
+import Card from "./Card";  // ← DEINEN PFADE ANPASSEN!
 
+// Mocks EINMALIG (hoch gehostet, KEINE Variablen referenzieren!)
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ src, alt, ...props }) => (
     <img data-testid="card-image" alt={alt} src={src} {...props} />
+  ),
+}));
+
+jest.mock('next/link', () => ({
+  __esModule: true,
+  default: ({ children, href }) => (
+    <a href={href}>{children}</a>  // ← Einfach, ohne data-testid!
   ),
 }));
 
@@ -23,9 +31,10 @@ describe('Card Component', () => {
     expect(screen.getByText("Elianne Dipp")).toBeInTheDocument();
   });
 
-  test("renders image name as link", () => {
+  test("renders image name as clickable link", () => {
     render(<Card {...baseProps} />);
-    expect(screen.getByText("Split Shot of Whale")).toBeInTheDocument();
+    const titleLink = screen.getByText("Split Shot of Whale").closest('a');
+    expect(titleLink).toHaveAttribute('href', '/details/test-slug');
   });
 
   test("renders image with correct alt text", () => {
