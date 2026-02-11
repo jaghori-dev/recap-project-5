@@ -23,7 +23,7 @@ export default function Details({ artPieces }) {
   }
 
   const artPiece = artPieces.find((art) => art.slug === slug);
-
+  console.log("Art", artPiece);
   if (!artPiece) {
     return <NotFound/>;
   }
@@ -39,7 +39,9 @@ export default function Details({ artPieces }) {
             isDetails={true}
       />
 
-     {<ColorPalette/>}
+     <ColorPalette
+        colors = {artPiece.colors}
+     />
 
       <CommentForm
         comments = {comments}
