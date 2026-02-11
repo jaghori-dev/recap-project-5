@@ -44,6 +44,11 @@ const CommentCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+    transform: translateY(-1px);
+  }
 `;
 
 const CommentLabel = styled.label`

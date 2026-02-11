@@ -3,8 +3,8 @@ import NotFound from "@/components/NotFound";
 import Loading from "@/components/Loading";
 import Card from "@/components/Card/Card";
 import LinkButton from "@/components/LinkButton";
-import CommentForm from "@/components/CommentForm";
-import CardComments from "@/components/CardComments";
+import CommentForm from "@/components/Comments/CommentForm";
+import CardComments from "@/components/Comments/CardComments";
 import useLocalStorageState from "use-local-storage-state";
 import { comments as localComments } from "@/assets/comments";
 
