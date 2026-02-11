@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Card from "./Card";  // ← DEINEN PFADE ANPASSEN!
+import Card from "./Card";  
 
-// Mocks EINMALIG (hoch gehostet, KEINE Variablen referenzieren!)
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ src, alt, ...props }) => (
