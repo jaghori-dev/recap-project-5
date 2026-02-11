@@ -30,7 +30,7 @@ const NotFoundWrapper = styled.div`
   padding: 2rem;
   text-align: center;
   color: #64748b;
-  
+
   @media (max-width: 768px) {
     padding: 1rem;
   }
@@ -45,7 +45,7 @@ const NotFoundIcon = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  
+
   svg {
     width: 40px;
     height: 40px;

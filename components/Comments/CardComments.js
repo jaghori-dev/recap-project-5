@@ -37,13 +37,13 @@ const CommentsWrapper = styled.div`
 `;
 
 const CommentsList = styled.ul`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%;  
+  width: 100%;
 `;
 
 const CommentItem = styled.li`
@@ -52,7 +52,7 @@ const CommentItem = styled.li`
   padding: 1.25rem 1.75rem;
   margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-  border-left: 3px solid #6366f1; 
+  border-left: 3px solid #6366f1;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
   width: 100%;
   max-width: 380px;

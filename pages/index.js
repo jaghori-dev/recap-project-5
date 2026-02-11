@@ -6,12 +6,12 @@ export default function Homepage({ artPieces }) {
 
   return (
     <Card
-        key={art.slug}
-        artist={art.artist}
-        imageName={art.name}
-        imageSource={art.imageSource}
-        slug={art.slug}
-        isDetails={false}
-      />
+      key={art.slug}
+      artist={art.artist}
+      imageName={art.name}
+      imageSource={art.imageSource}
+      slug={art.slug}
+      isDetails={false}
+    />
   );
 }

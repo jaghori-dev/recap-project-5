@@ -31,15 +31,15 @@ export default function Details({ artPieces }) {
   return (
     <>
       <Card artist={artPiece.artist}
-               imageName={artPiece.name}
-               imageYear={artPiece.year}
-               imageGenre={artPiece.genre}
-               imageSource={artPiece.imageSource} />
+            imageName={artPiece.name}
+            imageYear={artPiece.year}
+            imageGenre={artPiece.genre}
+            imageSource={artPiece.imageSource} />
 
       <CommentForm
-      comments = {comments}
-      setComments = {setComments}
-      artPiece = {artPiece}
+        comments = {comments}
+        setComments = {setComments}
+        artPiece = {artPiece}
       />
 
       <CardComments

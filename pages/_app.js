@@ -1,55 +1,42 @@
-import { useRouter } from "next/router";
-import NotFound from "@/components/NotFound";
+import GlobalStyle from "../styles";
+import Header from "@/components/Header/Header";
+import useSWR from "swr";
 import Loading from "@/components/Loading";
-import Card from "@/components/Card/Card";
-import LinkButton from "@/components/Buttons/LinkButton";
-import CommentForm from "@/components/Comments/CommentForm";
-import CardComments from "@/components/Comments/CardComments";
-import useLocalStorageState from "use-local-storage-state";
-import { comments as localComments } from "@/assets/comments";
+import Error from "@/components/Error";
+import styled from "styled-components";
 
+const fetcher = async (url) => {
+  const response = await fetch(url);
+  return await response.json();
+};
+export default function App({ Component, pageProps }) {
+  const {
+    data: artPieces,
+    error,
+    isLoading,
+  } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
-export default function Details({ artPieces }) {
-  const router = useRouter();
-  const { slug } = router.query;
-
-  const [comments, setComments] = useLocalStorageState(
-    "comments", {
-      defaultValue: localComments,
-    });
-
-  if (!slug) {
-    return <Loading/>;
-  }
-
-  const artPiece = artPieces.find((art) => art.slug === slug);
-
-  if (!artPiece) {
-    return <NotFound/>;
-  }
+  if (error) return <Error/>;
+  if (isLoading) return <Loading/>;
 
   return (
     <>
-      <Card artist={artPiece.artist}
-               imageName={artPiece.name}
-               imageYear={artPiece.year}
-               imageGenre={artPiece.genre}
-               imageSource={artPiece.imageSource} />
-
-      <CommentForm
-      comments = {comments}
-      setComments = {setComments}
-      artPiece = {artPiece}
-      />
-
-      <CardComments
-        comments = {comments}
-        artPiece = {artPiece}
-      />
-
-      <LinkButton
-        text="Back to Gallery"
-        link="/gallery"/>
+      <GlobalStyle />
+      <Header />
+      <Main>
+        <Component {...pageProps} artPieces={artPieces} />
+      </Main>
     </>
   );
 }
+
+const Main = styled.main`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 1rem 0.5rem;
+  }
+`;

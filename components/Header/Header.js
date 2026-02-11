@@ -55,7 +55,7 @@ const HeaderItem = styled.header`
   padding: 1rem 2rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e2e8f0;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,7 +118,7 @@ const NavLink = styled(Link)`
   position: relative;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  
+
   ${({ active }) => active && css`
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
@@ -129,7 +129,7 @@ const NavLink = styled(Link)`
       opacity: 1;
     }
   `}
-  
+
   &:hover {
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     color: white;

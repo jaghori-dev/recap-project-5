@@ -17,7 +17,7 @@ export default function CommentForm({comments, setComments, artPiece}) {
         date: dateTime,
         slug: artPiece.slug
       },
-        ...comments,
+      ...comments,
     ]);
 
     event.target.reset();

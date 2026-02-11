@@ -21,7 +21,7 @@ export default function LikeButton({ initialLiked = false, onToggle }) {
           toggleLike();
         }}
         aria-label="Like">
-          {isLiked ? <FaHeart /> : <FaRegHeart />}
+        {isLiked ? <FaHeart /> : <FaRegHeart />}
       </StyledButton>
     </LikeButtonContainer>
   );

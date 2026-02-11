@@ -27,17 +27,17 @@ export default function Card({ artist, imageName, imageYear= "", imageGenre="", 
           <ArtCardItem>
             <ArtCardLabel>Artist:</ArtCardLabel>
             <ArtCardValue>{artist}</ArtCardValue>
-           </ArtCardItem>
+          </ArtCardItem>
           {isDetails && (
             <>
-            <ArtCardItem>
-              <ArtCardLabel>Year:</ArtCardLabel>
-              <ArtCardValue>{imageYear}</ArtCardValue>
-            </ArtCardItem>
-            <ArtCardItem>
-              <ArtCardLabel>Genre:</ArtCardLabel>
-              <ArtCardValue>{imageGenre}</ArtCardValue>
-            </ArtCardItem>
+              <ArtCardItem>
+                <ArtCardLabel>Year:</ArtCardLabel>
+                <ArtCardValue>{imageYear}</ArtCardValue>
+              </ArtCardItem>
+              <ArtCardItem>
+                <ArtCardLabel>Genre:</ArtCardLabel>
+                <ArtCardValue>{imageGenre}</ArtCardValue>
+              </ArtCardItem>
             </>)}
         </ArtCardBody>
       </ArtCard>
