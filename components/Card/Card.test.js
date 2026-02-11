@@ -1,5 +1,13 @@
+jest.mock('use-local-storage-state', () => ({
+  __esModule: true,
+  default: (key, options = {}) => {
+    const defaultValue = options.defaultValue || [];
+    return [defaultValue, jest.fn()];
+  },
+}));
+
 import { render, screen } from "@testing-library/react";
-import Card from "./Card";  
+import Card from "./Card";
 
 jest.mock('next/image', () => ({
   __esModule: true,
@@ -11,7 +19,7 @@ jest.mock('next/image', () => ({
 jest.mock('next/link', () => ({
   __esModule: true,
   default: ({ children, href }) => (
-    <a href={href}>{children}</a>  // ← Einfach, ohne data-testid!
+    <a href={href}>{children}</a>
   ),
 }));
 
