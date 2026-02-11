@@ -2,44 +2,64 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-export default function Card({ artist, imageName, imageYear= "", imageGenre="", imageSource, slug, isDetails = true }) {
+export default function Card({
+  artist,
+  imageName,
+  imageYear = "",
+  imageGenre = "",
+  imageSource,
+  slug,
+  isDetails = true,
+  isFavorite,
+  onClick,
+}) {
   return (
     <Section>
       <ArtCard>
         <ArtCardImageWrapper href={`/details/${slug}`}>
+          <ImageStyling
+            src={isFavorite ? "/heart-fill.png" : "/heart.png"}
+            alt="favorite-icon"
+            height={24}
+            width={24}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onClick();
+            }}
+          />
           <ArtCardImage
             src={`${imageSource}`}
             height={200}
             width={200}
-            alt={imageName} />
+            alt={imageName}
+          />
         </ArtCardImageWrapper>
         <ArtCardBody>
-          <ArtCardTitle >
-            <Link href={`/details/${slug}`}>
-              {imageName}
-            </Link>
+          <ArtCardTitle>
+            <Link href={`/details/${slug}`}>{imageName}</Link>
           </ArtCardTitle>
           <ArtCardItem>
             <ArtCardLabel>Artist:</ArtCardLabel>
             <ArtCardValue>{artist}</ArtCardValue>
-           </ArtCardItem>
+          </ArtCardItem>
           {isDetails && (
             <>
-            <ArtCardItem>
-              <ArtCardLabel>Year:</ArtCardLabel>
-              <ArtCardValue>{imageYear}</ArtCardValue>
-            </ArtCardItem>
-            <ArtCardItem>
-              <ArtCardLabel>Genre:</ArtCardLabel>
-              <ArtCardValue>{imageGenre}</ArtCardValue>
-            </ArtCardItem>
-            </>)}
+              <ArtCardItem>
+                <ArtCardLabel>Year:</ArtCardLabel>
+                <ArtCardValue>{imageYear}</ArtCardValue>
+              </ArtCardItem>
+              <ArtCardItem>
+                <ArtCardLabel>Genre:</ArtCardLabel>
+                <ArtCardValue>{imageGenre}</ArtCardValue>
+              </ArtCardItem>
+            </>
+          )}
         </ArtCardBody>
       </ArtCard>
     </Section>
   );
 }
-
 
 const Section = styled.section`
   display: grid;
@@ -49,11 +69,30 @@ const Section = styled.section`
   padding: 2rem 0;
   max-width: 1200px;
   margin: 0 auto;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1rem 0.5rem;
+  }
+`;
+
+const ImageStyling = styled(Image)`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
   }
 `;
 
@@ -80,7 +119,7 @@ const ArtCard = styled.div`
 `;
 
 const ArtCardBody = styled.div`
-  flex: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
@@ -94,28 +133,28 @@ const ArtCardTitle = styled.div`
   margin: 0 0 0.5rem 0;
   line-height: 1.3;
   text-align: center;
-  
+
   a {
-    display: block;  
-    color: #1e293b;  
+    display: block;
+    color: #1e293b;
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.3;
     text-decoration: none;
-  
+
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    
+
     &:hover {
-      color: #3b82f6;  
+      color: #3b82f6;
       text-decoration: underline;
-      transform: translateX(4px); 
+      transform: translateX(4px);
       transition: all 0.2s ease;
     }
   }
-  
+
   @media (max-width: 768px) {
     a {
       font-size: 1.1rem;
@@ -125,7 +164,7 @@ const ArtCardTitle = styled.div`
 
 const ArtCardItem = styled.div`
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 0.25rem 0;
   border-bottom: 1px solid #f1f5f9;
@@ -146,12 +185,12 @@ const ArtCardImageWrapper = styled(Link)`
   height: 200px;
   overflow: hidden;
   position: relative;
-  display: block; 
-  
+  display: block;
+
   transition: all 0.3s ease;
-  
+
   &:hover {
-    transform: scale(1.02); 
+    transform: scale(1.02);
   }
 `;
 
@@ -160,7 +199,7 @@ const ArtCardImage = styled(Image)`
   height: 100% !important;
   object-fit: cover;
   transition: transform 0.4s ease;
-  
+
   ${ArtCardImageWrapper}:hover & {
     transform: scale(1.1);
   }

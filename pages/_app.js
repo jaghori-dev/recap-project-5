@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
 import styled from "styled-components";
+import useLocalStorageState from "use-local-storage-state";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -16,15 +17,31 @@ export default function App({ Component, pageProps }) {
     isLoading,
   } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
-  if (error) return <Error/>;
-  if (isLoading) return <Loading/>;
+  const [favorites, setFavorites] = useLocalStorageState("favorites", {
+    defaultValue: {},
+  });
+
+  function toggleFavorites(slug) {
+    setFavorites((prevFavorites) => ({
+      ...prevFavorites,
+      [slug]: !prevFavorites[slug],
+    }));
+  }
+
+  if (error) return <Error />;
+  if (isLoading) return <Loading />;
 
   return (
     <>
       <GlobalStyle />
       <Header />
       <Main>
-        <Component {...pageProps} artPieces={artPieces} />
+        <Component
+          {...pageProps}
+          artPieces={artPieces}
+          favorites={favorites}
+          toggleFavorites={toggleFavorites}
+        />
       </Main>
     </>
   );
