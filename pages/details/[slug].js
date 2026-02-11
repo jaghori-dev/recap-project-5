@@ -9,7 +9,6 @@ import useLocalStorageState from "use-local-storage-state";
 import { comments as localComments } from "@/assets/comments";
 import ColorPalette from "@/components/ColorPalette/ColorPalette";
 
-
 export default function Details({ artPieces }) {
   const router = useRouter();
   const { slug } = router.query;
@@ -35,7 +34,10 @@ export default function Details({ artPieces }) {
             imageName={artPiece.name}
             imageYear={artPiece.year}
             imageGenre={artPiece.genre}
-            imageSource={artPiece.imageSource} />
+            imageSource={artPiece.imageSource}
+            slug={slug}
+            isDetails={true}
+      />
 
      {<ColorPalette/>}
 

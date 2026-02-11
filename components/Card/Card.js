@@ -1,9 +1,29 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import LikeButton from "@/components/Buttons/LikeButton";
+import useLocalStorageState from "use-local-storage-state";
 
-export default function Card({ artist, imageName, imageYear= "", imageGenre="", imageSource, slug, isDetails = true }) {
+export default function Card({
+                               artist,
+                               imageName,
+                               imageYear= "",
+                               imageGenre="",
+                               imageSource,
+                               slug,
+                               isDetails = true }) {
+  const [likedSlugs, setLikedSlugs] = useLocalStorageState('liked-slugs', { defaultValue: [] });
+  const initialLiked = likedSlugs.includes(slug);
+
+  const handleToggle = (liked) => {
+    if (liked) {
+      setLikedSlugs([...likedSlugs, slug]);
+    } else {
+      setLikedSlugs(likedSlugs.filter(s => s !== slug));
+    }
+  };
+
   return (
     <Section>
       <ArtCard>
@@ -14,8 +34,8 @@ export default function Card({ artist, imageName, imageYear= "", imageGenre="", 
             width={200}
             alt={imageName} />
           <LikeButton
-            initialLiked={false}
-            onToggle={(liked) => console.log('Liked:', liked)}
+            initialLiked={initialLiked}
+            onToggle={handleToggle}
           />
         </ArtCardImageWrapper>
         <ArtCardBody>
@@ -44,7 +64,6 @@ export default function Card({ artist, imageName, imageYear= "", imageGenre="", 
     </Section>
   );
 }
-
 
 const Section = styled.section`
   display: grid;
