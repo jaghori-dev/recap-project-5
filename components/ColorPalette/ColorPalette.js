@@ -4,7 +4,7 @@ export default function ColorPalette({ colors = [] }) {
   if (!colors.length) {
     return <PaletteContainer>Keine Farben verfügbar.</PaletteContainer>;
   }
-console.log("farben", colors);
+
   return (
     <PaletteContainer>
       <ColorsGrid>
